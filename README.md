@@ -32,9 +32,14 @@ A step by step series of examples that tell you how to get a development env run
 - Dockerfile with hot-reloading
 
 
-## Running the tests
+## Running the tests - Unit Testing
 
 To make use of random inputs change `config.json`
+
+Run the following command
+```
+python -m unittest utils_test
+```
 
 
 ## Contributing
