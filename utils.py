@@ -1,4 +1,5 @@
 
+import names
 import random
 import string
 
@@ -11,6 +12,8 @@ class Player:
     def __init__(self, name, score):
         self.name = name
         self.score = score
+    def __str__(self):
+        return "Name - {}  Score - {}".format(self.name, self.score)
 
 '''
 # Team Class -
@@ -21,6 +24,9 @@ class Team:
     def __init__(self, team, score):
         self.team = team
         self.score = score
+    
+    def __str__(self):
+        return "Team - {}  Score - {}".format(list(self.team), self.score)
 
 '''
 # MatchMaking Class -
@@ -46,14 +52,16 @@ get_user_inputs : Gets the input for
     M - no of players in a team i.e M vs M 
 '''
 def get_user_inputs():
-    N, M = map(int, raw_input().split()) 
-    print(N,M)
+    N, M = map(int, raw_input().split())
+
+    if M > int(N/2):
+        raise("Not enough players for match making.")
+    
     players_list = []
     
     for _ in range(N):
         name , score = raw_input().split()
-        players_list.append(Player(name, int(score))) 
-        print(name, score)
+        players_list.append(Player(name, int(score)))
     
     return players_list, M
 
@@ -65,13 +73,15 @@ get_random_inputs : Returns random inputs for
 '''
 def get_random_inputs(N, M):
     
+    if M > int(N/2):
+        raise("Not enough players for match making.")
+
     players_list = []
     
     for _ in range(N):
-        rand_name = ''.join(random.choice(string.lowercase) for x in range(M))
+        rand_name = names.get_first_name()
         rand_score = random.randrange(10)
-        players_list.append(Player(rand_name, rand_score)) 
-        print(rand_name, rand_score)
+        players_list.append(Player(rand_name, rand_score))
     
     return players_list, M
 

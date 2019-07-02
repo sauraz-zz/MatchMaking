@@ -1,0 +1,5 @@
+{
+    "useRandomInput": true,
+    "defaultPlayers": 4,
+    "defaultTeamSize": 2
+}
