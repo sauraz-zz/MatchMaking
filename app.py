@@ -12,22 +12,27 @@ def get_possible_teams(players_list, M):
     for obj in teams:
         print("Team - {}  Score - {}".format(obj.team, obj.score))
     return teams
-    
-def get_match_making_list(teams):
-    diff_list = utils.get_score_diff(teams)
-    return diff_list
+
+'''
+calculate_match_making - Calculates match_making based on teams
+    Prints down best-worst match_making 
+'''
+def calculate_match_making(teams):
+    match_making_list = utils.get_team_diff_list(teams)
+    for i, x in enumerate(match_making_list):
+        print("{} - {}".format(i+1, x))
 
 
 def init():
     # Inputs
-    # players_list, M = utils.get_user_inputs()
-    players_list, M = utils.get_random_inputs(6, 3)
+    players_list, M = utils.get_user_inputs()
+    # players_list, M = utils.get_random_inputs(4, 2)
     
     # Possible combinations of teams
     teams = get_possible_teams(players_list, M)
 
     # Possible combinations of teams
-    match_making_list = get_match_making_list(teams)
+    calculate_match_making(teams)
 
 
 
