@@ -26,6 +26,12 @@ A step by step series of examples that tell you how to get a development env run
 7. python app.py
 ```
 
+### Future Works
+
+- MatchMaking can be deployed as a web server.
+- Dockerfile with hot-reloading
+
+
 ## Running the tests
 
 To make use of random inputs change `config.json`
