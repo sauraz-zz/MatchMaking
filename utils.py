@@ -94,7 +94,7 @@ get_teams_combinations : Uses backtracking to get all combinations of possible t
 def get_teams_combinations(players_list, M):
 
     teams = []
-    reference_arr = [False]*len(players_list)
+    reference_arr = [False] * len(players_list)
     
     # Returns the combinations of teams with their scores
     def combinations(actual_arr, max_size, start, curr_len, used_arr):
